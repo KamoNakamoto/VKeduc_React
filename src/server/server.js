@@ -1,14 +1,13 @@
-// server.js
+
 import express from 'express';
 import cors from 'cors';
 
 const app = express();
 
-// Middleware
-app.use(cors()); // Разрешаем CORS для всех доменов
+app.use(cors()); 
 app.use(express.json());
 
-// Данные приложений
+
 const apps = [
   { 
     id: 1, 
@@ -34,7 +33,7 @@ const apps = [
   },
   { 
     id: 3, 
-    title: "Джейсон", 
+    title: "Json", 
     price: 0, 
     free: true,
     category: "development",
@@ -155,6 +154,6 @@ app.get('/', (req, res) => {
 
 const PORT = 4000;
 app.listen(PORT, () => {
-  console.log(`✅ Сервер запущен на http://localhost:${PORT}`);
-  console.log(`📡 API: http://localhost:${PORT}/api/apps`);
+  console.log(` Сервер запущен на http://localhost:${PORT}`);
+  console.log(` API: http://localhost:${PORT}/api/apps`);
 });
