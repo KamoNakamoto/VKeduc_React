@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
+    "mobx": "^6.16.1",
+    "mobx-react-lite": "^4.1.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },

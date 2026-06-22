@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, JSX } from 'react'
-import type { App } from './types'
-import { fetchApps } from './api'
+import { observer } from 'mobx-react-lite'
+import { useStores } from './stores'
 
 import music from './assets/music.jpg'
 import tasks from './assets/tasks.jpg'
@@ -60,10 +60,9 @@ const categoryLabels: Record<string, string> = {
   health: 'Здоровье',
 }
 
-export default function App(): JSX.Element {
-  const [apps, setApps] = useState<App[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
+const App = observer(function App(): JSX.Element {
+  const { appsStore } = useStores()
+
   const [search, setSearch] = useState<string>('')
   const [activeTab, setActiveTab] = useState<string>(ALL)
   const [favorites, setFavorites] = useState<number[]>([])
@@ -71,32 +70,20 @@ export default function App(): JSX.Element {
   const debouncedSearch = useDebounce(search, 300)
 
   useEffect(() => {
-    async function loadApps(): Promise<void> {
-      try {
-        setLoading(true)
-        setError(null)
-        const data = await fetchApps()
-        setApps(data)
-      } catch (e) {
-        setError(e instanceof Error ? e.message : 'Неизвестная ошибка')
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadApps()
+    appsStore.loadApps()
   }, [])
 
-  const categories: string[] = [ALL, ...new Set(apps.map((a) => a.category))]
+  const categories: string[] = [ALL, ...new Set(appsStore.apps.map((a) => a.category))]
 
-  const filtered = useMemo<App[]>(() => {
-    return apps.filter((app) => {
+  const filtered = useMemo(() => {
+    return appsStore.apps.filter((app) => {
       const matchCat = activeTab === ALL || app.category === activeTab
       const matchSearch =
         app.title.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
         app.description.toLowerCase().includes(debouncedSearch.toLowerCase())
       return matchCat && matchSearch
     })
-  }, [apps, activeTab, debouncedSearch])
+  }, [appsStore.apps, activeTab, debouncedSearch])
 
   const toggleFavorite = (id: number): void => {
     setFavorites((prev) =>
@@ -206,7 +193,7 @@ export default function App(): JSX.Element {
         <div style={{ borderTop: '1px solid #e2e8f0', marginBottom: 36 }} />
 
         {/* Загрузка */}
-        {loading && (
+        {appsStore.isLoading && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '80px 0', gap: 14 }}>
             <div style={{
               width: 36, height: 36, borderRadius: '50%',
@@ -220,11 +207,11 @@ export default function App(): JSX.Element {
         )}
 
         {/* Ошибка */}
-        {error && (
+        {appsStore.error && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '80px 0', gap: 12 }}>
-            <p style={{ color: '#dc2626', fontSize: 15, fontFamily: 'sans-serif' }}>{error}</p>
+            <p style={{ color: '#dc2626', fontSize: 15, fontFamily: 'sans-serif' }}>{appsStore.error}</p>
             <button
-              onClick={() => window.location.reload()}
+              onClick={() => appsStore.loadApps()}
               style={{
                 padding: '9px 22px', borderRadius: 6,
                 border: '1px solid #dc2626',
@@ -239,7 +226,7 @@ export default function App(): JSX.Element {
         )}
 
         {/* Карточки */}
-        {!loading && !error && (
+        {!appsStore.isLoading && !appsStore.error && (
           <>
             <div style={{
               display: 'grid',
@@ -390,4 +377,6 @@ export default function App(): JSX.Element {
       `}</style>
     </div>
   )
-}
+})
+
+export default App
