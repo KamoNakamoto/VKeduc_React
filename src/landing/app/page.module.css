@@ -1,0 +1,51 @@
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 32px 100px;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #0f172a;
+}
+
+.hero {
+  margin-bottom: 56px;
+  max-width: 640px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0 0 16px;
+}
+
+.subheading {
+  font-family: sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #64748b;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.empty {
+  font-family: sans-serif;
+  text-align: center;
+  color: #94a3b8;
+  padding: 80px 0;
+}

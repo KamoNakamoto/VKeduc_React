@@ -1,0 +1,152 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./app/components/AppCard.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.AppCard_card__snoAe {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.AppCard_card__snoAe:hover {
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.AppCard_imageWrap__V0HUA {
+  position: relative;
+  height: 180px;
+  background: #f1f5f9;
+}
+
+.AppCard_image__kuXRg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.AppCard_priceTag__86dWY {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+.AppCard_body__h6yRB {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1;
+}
+
+.AppCard_meta__P1gsw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.AppCard_category__4wf9V {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.AppCard_rating__Lc1ej {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.AppCard_title__MK73t {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.AppCard_description__V8Yd6 {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1 1;
+}
+
+.AppCard_footer__5CuaH {
+  margin-top: 6px;
+}
+
+.AppCard_downloads__bhhhf {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./app/page.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+.page_main__nw1Wk {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 32px 100px;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #0f172a;
+}
+
+.page_hero__7KFOs {
+  margin-bottom: 56px;
+  max-width: 640px;
+}
+
+.page_eyebrow__yxIK8 {
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.page_heading__eEOyF {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0 0 16px;
+}
+
+.page_subheading__LKbL_ {
+  font-family: sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #64748b;
+  margin: 0;
+}
+
+.page_grid__JZ9Cz {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 20px;
+  gap: 20px;
+}
+
+.page_empty__btHOz {
+  font-family: sans-serif;
+  text-align: center;
+  color: #94a3b8;
+  padding: 80px 0;
+}
+
